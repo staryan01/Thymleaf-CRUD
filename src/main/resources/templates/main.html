@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .center {
+            text-align: center;
+        }
+        .success-message {
+            color: green;
+        }
+        .btn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="center">
+    <h3 th:if="${failure}" class="success-message" th:text="${failure}"></h3>
+
+    <h3 th:if="${success}" class="success-message" th:text="${success}"></h3>
+    
+    
+    
+  
+ 
+
+    <!-- <a href="update"><button class="btn">Update</button></a>
+    <a href="delete"><button class="btn">Delete</button></a> -->
+    
+</div><br><br><br>
+<div th:if=${list}>
+		<table border="1">
+			<tr>
+				<th>Name</th>
+				<th>Mobile</th>
+				<th>gender</th>
+				<th>Math</th>
+				<th>Science</th>
+				<th>English</th>
+				<th>percentage</th>					
+				<th>Edit</th>
+				<th>Delete</th>
+			
+			</tr>
+			<tr th:each="student:${list}">
+				<td th:text="${student.name}"></td>
+				<td th:text="${student.mobile}"></td>
+				<td th:text="${student.gender}"></td>
+				<td th:text="${student.math}"></td>
+				<td th:text="${student.science}"></td>
+				<td th:text="${student.english}"></td>
+				<td th:text="${(student.math + student.science + student.english)/3.0}"></td>
+				<td><a th:href="'/edit/'+${student.id}"><button>Edit</button></a></td>
+				<td><a th:href="'/delete/'+${student.id}"><button>Delete</button></a></td>
+			</tr>
+		
+		</table>
+		
+		
+	
+	</div>
+
+	
+			    <a href="/insert"><button class="btn">Insert</button></a>
+			     <a href="/login"><button class="btn">Login</button></a>
+			    <a href="/fetch"><button class="btn">Fetch</button></a>
+			    
+			    <div th:if=${fetch}>
+			   		 	<a href="/fetch/name"><button class="btn">Fetch By Name</button></a>
+			    		<a href="/fetch/mobile"><button class="btn">Fetch By Mobile</button></a>
+			   		 	<a href="/fetch/gender"><button class="btn">Fetch By Gender</button></a>
+			    		<a href="/fetch/marks"><button class="btn">Fetch By Marks</button></a>
+			    		<a href="/fetch/percentage"><button class="btn">Fetch By Percentage</button></a>
+			    
+			    </div> 
+			    
+			    <div th:if="${field}">
+			    <br>
+					<form th:action="'/fetch/'+${field}" method="post">
+						
+						Enter <span th:text="${field}"></span> : <input type="text" th:name="${field}">
+						<button>submit</button>
+					
+					</form>			    
+			    
+			    </div>   
+	
+
+</body>
+</html>

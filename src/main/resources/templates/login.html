@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/login" method="post">
+		<h1 th:text="${msg}"></h1>
+		<h1  th:text="${failure}"></h1>
+		
+		Enter name:<input type="text" name="name" placeholder="enter your name"><br>
+		Enter mobile<input type="number" name="mobile" placeholder="enter your mobile no"><br>
+		<button>submit</button>
+	</form>
+
+</body>
+</html>

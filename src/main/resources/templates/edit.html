@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div align="center">
+		<form action="/edit" method="post" th:object=${student}>
+		<input type="hidden" name="id" th:field="*{id}"  ><br><br>
+		
+		Name:<input type="text" name="name" th:field="*{name}" placeholder="Enter your name" ><br><br>
+		Mobile:<input type="number" name="mobile" th:field="*{mobile}" placeholder="Enter your mobile no" ><br><br>
+		Gender:<input type="radio" name="gender" th:field="*{gender}" value="male" >Male
+				<input type="radio" name="gender" th:field="*{gender}" value="female" >Female
+				<br><br>
+		Marks:<br>
+				Math:<input type="number" name="math" th:field="*{math}" placeholder="Enter your Math Marks" ><br><br>
+				Science:<input type="number" name="science" th:field="*{science}" placeholder="Enter your Science Marks" ><br><br>
+				English:<input type="number" name="english" th:field="*{english}" placeholder="Enter your English Marks" ><br><br>
+			
+				
+				<button>Update</button>
+		
+		
+	</form>
+	</div>
+
+</body>
+</html>
